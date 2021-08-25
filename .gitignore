@@ -1,0 +1,4 @@
+doc_storage
+.idea
+.vscode
+__pycache__
