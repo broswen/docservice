@@ -1,7 +1,19 @@
 version: '3.1'
 
 services:
-
+  docservice:
+    build: .
+    image: docservice
+    environment:
+      - DBUSER=root
+      - DBPASS=password
+      - DBHOST=mongo
+    depends_on:
+      - mongo
+    ports:
+      - 8080:8080
+    volumes:
+      - docstorage:/document_storage
   mongo:
     image: mongo
     restart: always
@@ -10,3 +22,5 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: password
     ports:
       - 27017:27017
+volumes:
+  docstorage:
