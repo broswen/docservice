@@ -17,8 +17,6 @@ app.config['DBPASS'] = os.getenv('DBPASS', 'password')
 app.config['DB'] = os.getenv('DB', 'docservice')
 app.config['COL'] = os.getenv('COL', 'documents')
 
-print(app.config)
-
 
 def get_db() -> MongoClient:
     if 'db' not in g:
